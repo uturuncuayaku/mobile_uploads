@@ -1,21 +1,24 @@
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 int isEOF(char *);
 
 int main(void){
   t = T;
-  w = W;
-  while(!isEOF(*T)){
+  while(!isEOF(*t)){
+    w = W;
     if (*t == ' ')
        t++;
     if(*t == *w){
-      while(*w && *t != ' '){
+      while(*w == *t && *t != ' '){
         t++; w++; ct++;
        }
       if(ct == strlen(*W)){
         wc++;
-        w = W;
         t++;
       }
-    T++;
     }
   }
   return 0;

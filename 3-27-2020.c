@@ -6,19 +6,25 @@
 int isEOF(char *);
 
 int main(void){
+  
+  char *W = "stay";
+  char *T = "stay cool and program something while doing your part in preventing the spread of the virus";
+  char *t = NULL;
+  char *w = NULL;
+  int wc = 0;
+  int ct = 0;
+  
   t = T;
   while(!isEOF(*t)){
     w = W;
     if (*t == ' ')
        t++;
-    if(*t == *w){
-      while(*w == *t && *t != ' '){
-        t++; w++; ct++;
-       }
-      if(ct == strlen(*W)){
-        wc++;
-        t++;
-      }
+    while(*w && *t && *t != ' ' && *w == *t){
+      t++; w++; ct++;
+    }
+    if(ct == strlen(*W)){
+      wc++;
+      t++;
     }
   }
   return 0;
